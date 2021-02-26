@@ -62,4 +62,42 @@ func startGame() {
     } while remainingNumber > 0
 }
 
-startGame()
+//startGame()
+
+func printGameMenu() {
+    print("1. 게임시작")
+    print("2. 게임종료")
+    print("원하는 기능을 선택해주세요 : ", terminator:"")
+}
+
+func getMenuInput() -> String {
+    guard let input = readLine() else {
+        print("입력이 잘못되었습니다")
+        return ""
+    }
+    return input
+}
+
+func executeMenu(menuInput: String) {
+    switch menuInput {
+    case "1":
+        startGame()
+    case "2":
+        exit(0)
+    default:
+        print("입력이 잘못되었습니다")
+    }
+        
+}
+
+func showMenu() {
+    
+    while true {
+        printGameMenu()
+        executeMenu(menuInput: getMenuInput())
+    }
+}
+
+showMenu()
+
+
